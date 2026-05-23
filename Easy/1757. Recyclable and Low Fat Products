@@ -1,6 +1,16 @@
-# 1757. Recyclable and Low Fat Products
+<div align="center">
 
-## Problem Statement
+# 🚀 1757. Recyclable and Low Fat Products
+
+<img src="https://img.shields.io/badge/LeetCode-Easy-green" />
+<img src="https://img.shields.io/badge/SQL-MySQL-blue" />
+<img src="https://img.shields.io/badge/Topic-Filtering-orange" />
+
+</div>
+
+---
+
+# 📌 Problem Statement
 
 Table: `Products`
 
@@ -10,28 +20,30 @@ Table: `Products`
 | low_fats    | enum |
 | recyclable  | enum |
 
+### 📝 Description
+
 - `product_id` is the primary key.
-- `low_fats` is an ENUM with values `('Y', 'N')`
+- `low_fats` is an ENUM of type `('Y', 'N')`
   - `Y` → Product is low fat
   - `N` → Product is not low fat
-- `recyclable` is an ENUM with values `('Y', 'N')`
+- `recyclable` is an ENUM of type `('Y', 'N')`
   - `Y` → Product is recyclable
   - `N` → Product is not recyclable
 
 ---
 
-## Task
+# 🎯 Task
 
-Write a SQL query to find the IDs of products that are both:
+Write a SQL query to find the IDs of products that are:
 
-- Low fat
-- Recyclable
+✅ Low fat  
+✅ Recyclable  
 
-Return the result table in any order.
+Return the result table in **any order**.
 
 ---
 
-# SQL Solution
+# 💡 SQL Solution
 
 ```sql
 SELECT product_id
@@ -42,22 +54,30 @@ AND recyclable = 'Y';
 
 ---
 
-# Approach
+# 🧠 Approach
 
 To solve this problem:
 
-1. Select the `product_id` column from the `Products` table.
-2. Use the `WHERE` clause to filter rows.
-3. Check whether:
-   - `low_fats = 'Y'`
-   - `recyclable = 'Y'`
-4. Use the `AND` operator so that only products satisfying both conditions are returned.
+### Step 1️⃣
+Select the `product_id` column from the `Products` table.
+
+### Step 2️⃣
+Use the `WHERE` clause to filter rows.
+
+### Step 3️⃣
+Check two conditions:
+
+- `low_fats = 'Y'`
+- `recyclable = 'Y'`
+
+### Step 4️⃣
+Use the `AND` operator to return only products satisfying **both** conditions.
 
 ---
 
-# Example 1
+# 📊 Example
 
-## Input
+## 📥 Input
 
 ### Products Table
 
@@ -71,7 +91,7 @@ To solve this problem:
 
 ---
 
-## Output
+## 📤 Output
 
 | product_id |
 |-------------|
@@ -80,32 +100,39 @@ To solve this problem:
 
 ---
 
-## Explanation
+# 📖 Explanation
 
-- Product `1`
-  - Low fat → `Y`
-  - Recyclable → `Y`
-  - Included in output
+### ✅ Product 1
+- Low fat → `Y`
+- Recyclable → `Y`
 
-- Product `3`
-  - Low fat → `Y`
-  - Recyclable → `Y`
-  - Included in output
-
-All other products fail at least one condition.
+✔ Included in output
 
 ---
 
-# Concepts Used
+### ✅ Product 3
+- Low fat → `Y`
+- Recyclable → `Y`
+
+✔ Included in output
+
+---
+
+### ❌ Other Products
+They fail at least one condition.
+
+---
+
+# 🛠 Concepts Used
 
 - `SELECT`
 - `WHERE`
 - `AND` Operator
-- Row Filtering
+- Filtering Rows
 
 ---
 
-# Complexity Analysis
+# ⏱ Complexity Analysis
 
 | Operation | Complexity |
 |------------|-------------|
@@ -115,6 +142,14 @@ Where `n` is the number of rows in the `Products` table.
 
 ---
 
-# Key Learning
+# 🎓 Key Learning
 
-Use the `WHERE` clause with multiple conditions and the `AND` operator to filter records matching all required criteria.
+Use the `WHERE` clause with multiple conditions and the `AND` operator to filter rows matching all required criteria.
+
+---
+
+<div align="center">
+
+⭐ If you found this helpful, consider giving the repository a star!
+
+</div>
