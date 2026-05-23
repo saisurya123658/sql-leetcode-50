@@ -1,0 +1,120 @@
+# 1757. Recyclable and Low Fat Products
+
+## Problem Statement
+
+Table: `Products`
+
+| Column Name | Type |
+|-------------|------|
+| product_id  | int |
+| low_fats    | enum |
+| recyclable  | enum |
+
+- `product_id` is the primary key.
+- `low_fats` is an ENUM with values `('Y', 'N')`
+  - `Y` → Product is low fat
+  - `N` → Product is not low fat
+- `recyclable` is an ENUM with values `('Y', 'N')`
+  - `Y` → Product is recyclable
+  - `N` → Product is not recyclable
+
+---
+
+## Task
+
+Write a SQL query to find the IDs of products that are both:
+
+- Low fat
+- Recyclable
+
+Return the result table in any order.
+
+---
+
+# SQL Solution
+
+```sql
+SELECT product_id
+FROM Products
+WHERE low_fats = 'Y'
+AND recyclable = 'Y';
+```
+
+---
+
+# Approach
+
+To solve this problem:
+
+1. Select the `product_id` column from the `Products` table.
+2. Use the `WHERE` clause to filter rows.
+3. Check whether:
+   - `low_fats = 'Y'`
+   - `recyclable = 'Y'`
+4. Use the `AND` operator so that only products satisfying both conditions are returned.
+
+---
+
+# Example 1
+
+## Input
+
+### Products Table
+
+| product_id | low_fats | recyclable |
+|-------------|----------|-------------|
+| 0 | Y | N |
+| 1 | Y | Y |
+| 2 | N | Y |
+| 3 | Y | Y |
+| 4 | N | N |
+
+---
+
+## Output
+
+| product_id |
+|-------------|
+| 1 |
+| 3 |
+
+---
+
+## Explanation
+
+- Product `1`
+  - Low fat → `Y`
+  - Recyclable → `Y`
+  - Included in output
+
+- Product `3`
+  - Low fat → `Y`
+  - Recyclable → `Y`
+  - Included in output
+
+All other products fail at least one condition.
+
+---
+
+# Concepts Used
+
+- `SELECT`
+- `WHERE`
+- `AND` Operator
+- Row Filtering
+
+---
+
+# Complexity Analysis
+
+| Operation | Complexity |
+|------------|-------------|
+| Table Scan | O(n) |
+
+Where `n` is the number of rows in the `Products` table.
+
+---
+
+# Key Learning
+
+Use the `WHERE` clause with multiple conditions and the `AND` operator to filter records matching all required criteria.
